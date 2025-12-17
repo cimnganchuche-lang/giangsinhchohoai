@@ -1,25 +1,97 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đi tới website</title>
+<meta charset="UTF-8">
+<title>Merry Christmas 🎄</title>
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg,#ffdde1,#ee9ca7);
+    text-align:center;
+}
+#login{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.box{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+input{
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    width:200px;
+}
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    margin-top:10px;
+}
+#content{
+    display:none;
+    padding-top:50px;
+}
+</style>
 </head>
-<body style="font-family:Arial;text-align:center;margin-top:100px">
 
-  <h2>Nhập website</h2>
-  <input id="url" placeholder="vd: chatgpt.com" style="padding:8px;width:250px">
-  <br><br>
-  <button onclick="go()" style="padding:8px 20px">Đi tới</button>
+<body>
 
-  <script>
-    function go() {
-      let url = document.getElementById("url").value;
-      if (!url.startsWith("http")) {
-        url = "https://" + url;
-      }
-      window.location.href = url;
+<!-- TRANG NHẬP MẬT KHẨU -->
+<div id="login">
+    <div class="box">
+        <h2>🔐 Nhập mật khẩu</h2>
+        <input type="password" id="pass" placeholder="Nhập mật khẩu">
+        <br>
+        <button onclick="check()">Vào web</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+</div>
+
+<!-- NỘI DUNG WEB -->
+<div id="content">
+    <h1>🎄 Merry Christmas 🎄</h1>
+    <p>
+        Merry Christmas nha bn Hoài 🎅✨<br>
+        Chúc bn luôn vui vẻ, cười nhìu, gặp toàn điều dễ thương 💖<br>
+        Dù trời có lạnh thì nhớ là lúc nào cx có người quan tâm bn nhaaa ❄️
+    </p>
+
+    <p style="font-style:italic">
+        Web này tạo riêng cho bn 💌
+    </p>
+
+    <!-- NHẠC -->
+    <audio id="music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+function check(){
+    const mk = "22092012Hoai"; // 👈 đổi mật khẩu ở đây
+    const input = document.getElementById("pass").value;
+
+    if(input === mk){
+        document.getElementById("login").style.display="none";
+        document.getElementById("content").style.display="block";
+        document.getElementById("music").play();
+    }else{
+        document.getElementById("error").innerText="Sai mật khẩu rồi 😢";
     }
-  </script>
+}
+</script>
 
 </body>
 </html>
+
+
